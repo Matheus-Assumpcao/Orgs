@@ -43,7 +43,7 @@ class ListaProdutosAdapter(
 
     fun atualiza(produtos: List<Produto>) {
         this.produtos.clear()
-        this.produtos.addAll(produtos)
+        
         notifyDataSetChanged()
     }
 
