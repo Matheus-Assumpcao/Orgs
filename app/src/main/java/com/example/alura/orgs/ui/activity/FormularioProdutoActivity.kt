@@ -21,6 +21,13 @@ class FormularioProdutoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         configuraBotaoSalvar()
+        binding.activityFormularioProdutoImagem.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setView(R.layout.formaulario_imagem)
+                .setPositiveButton("Confirmar") { _, _ -> }
+                .setNegativeButton("Cancelar") { _, _ -> }
+                .show()
+        }
     }
 
     private fun configuraBotaoSalvar() {
