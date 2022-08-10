@@ -10,6 +10,7 @@ import coil.load
 import com.example.alura.orgs.R
 import com.example.alura.orgs.databinding.ActivityListaProdutosBinding
 import com.example.alura.orgs.databinding.ProdutoItemBinding
+import com.example.alura.orgs.extensions.tentaCarregarImagem
 import com.example.alura.orgs.model.Produto
 import java.math.BigDecimal
 import java.text.NumberFormat
@@ -33,7 +34,16 @@ class ListaProdutosAdapter(
             val valorEmMoeda: String =
                 formataParaMoedaBrasieleira(produto.valor)
             valor.text = valorEmMoeda
-            binding.imageView.load(produto.imagem)
+
+            val visibilidade = if (produto.imagem != null) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
+
+            binding.imageView.visibility = visibilidade
+
+            binding.imageView.tentaCarregarImagem(produto.imagem)
         }
 
         private fun formataParaMoedaBrasieleira(valor: BigDecimal): String {
