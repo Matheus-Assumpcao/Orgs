@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.alura.orgs.R
 import com.example.alura.orgs.databinding.ActivityListaProdutosBinding
 import com.example.alura.orgs.databinding.ProdutoItemBinding
@@ -32,6 +33,7 @@ class ListaProdutosAdapter(
             val valorEmMoeda: String =
                 formataParaMoedaBrasieleira(produto.valor)
             valor.text = valorEmMoeda
+            binding.imageView.load(produto.imagem)
         }
 
         private fun formataParaMoedaBrasieleira(valor: BigDecimal): String {
